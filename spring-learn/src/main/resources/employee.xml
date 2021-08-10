@@ -45,6 +45,7 @@
 		class="com.fis.springlearn.services.EmployeeService">
 		<property name="employeeDao" ref="dao"></property>
 	</bean>
+
 	<bean id="controller"
 		class="com.fis.springlearn.controller.EmployeeController">
 		<property name="employeeService" ref="service"></property>

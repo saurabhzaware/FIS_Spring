@@ -16,6 +16,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.fis.springlearn.bean1.Employee;
+import com.fis.springlearn.controller.EmployeeController;
 
 @SpringBootApplication
 public class SpringLearnApplication {
@@ -25,30 +26,31 @@ public class SpringLearnApplication {
 //		SpringApplication.run(SpringLearnApplication.class, args);
 //		displayDate();
 //		displayCountry();
-		displayEmployee();
+//		displayEmployee();
+		getEmployeeController();
 	}
 
-//	public static void displayCountries() {
-//		LOGGER.info("");
-//		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
-//		Country country = context.getBean("countryList", Country.class);
-//		for(int i=0;i<co)
-//	}
+	public static void displayCountries() {
+		LOGGER.info("");
+		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
+		Country country = context.getBean("countryList", Country.class);
+		//for(int i=0;i<co)
+	}
 
 	public static void displayCountry() {
 		LOGGER.info("START");
 
 		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
-//		Country country = context.getBean("country", Country.class);
-//		Country anotherCountry = context.getBean("anotherCountry", Country.class);
-//		LOGGER.debug(country.toString());
-//		LOGGER.debug(anotherCountry.toString());
+		Country country = context.getBean("country", Country.class);
+		Country anotherCountry = context.getBean("anotherCountry", Country.class);
+		LOGGER.debug(country.toString());
+		LOGGER.debug(anotherCountry.toString());
 
 		ArrayList<Country> countryList = context.getBean("countryList", ArrayList.class);
 		LOGGER.debug("Countries : {}" + countryList);
 		LOGGER.info("END");
 	}
-	
+
 	static void displayEmployee() {
 		LOGGER.info("START");
 		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
@@ -56,7 +58,23 @@ public class SpringLearnApplication {
 		LOGGER.debug("Employee : {}", employee);
 		LOGGER.info("END");
 	}
-	
+
+	public static void displayEmployeeControllerAnnotation(ApplicationContext applicationContext) {
+		LOGGER.info("START");
+		EmployeeController employeeController = applicationContext.getBean("employeeController",EmployeeController.class);
+		LOGGER.debug("EmployeeController : {}", employeeController);
+		LOGGER.info("END");
+
+	}
+
+	static void getEmployeeController() {
+		LOGGER.info("START");
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		EmployeeController employeeController = context.getBean("controller", EmployeeController.class);
+		LOGGER.debug("EmployeeController : {}", employeeController);
+		LOGGER.info("END");
+	}
+
 	static void displayDate() {
 		LOGGER.info("START");
 		ApplicationContext context = new ClassPathXmlApplicationContext("date-format.xml");

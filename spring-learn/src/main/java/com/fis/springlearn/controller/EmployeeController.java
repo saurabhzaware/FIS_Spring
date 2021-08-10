@@ -11,7 +11,7 @@ import com.fis.springlearn.services.EmployeeService;
 
 @Component
 @Configuration
-@ComponentScan("com.fis.springlearn.bean")
+@ComponentScan("com.fis.springlearn")
 public class EmployeeController {
 	private static final Logger LOGGER = LoggerFactory.getLogger(EmployeeController.class);
 
