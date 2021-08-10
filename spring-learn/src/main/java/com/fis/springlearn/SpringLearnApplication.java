@@ -22,8 +22,15 @@ public class SpringLearnApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(SpringLearnApplication.class, args);
 		displayDate();
+		displayCountry();
 	}
-	
+	public static void displayCountry() {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
+		Country country = context.getBean("country", Country.class);
+		Country anotherCountry = context.getBean("country", Country.class);
+		LOGGER.debug(country.toString());
+	}
 	static void displayDate()  {
 		LOGGER.info("START");
 		ApplicationContext context = new ClassPathXmlApplicationContext("date-format.xml");
