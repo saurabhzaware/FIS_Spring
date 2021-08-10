@@ -44,6 +44,7 @@
 
 	
 	<!--  ArrayList list=new ArrayList();-->
+	<!--  list.add(in);   -->
 	<bean id="countryList" class="java.util.ArrayList">
 		<constructor-arg>
 

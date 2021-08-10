@@ -1,7 +1,4 @@
 
-
-
-
 package com.fis.springlearn;
 
 import java.text.ParseException;
@@ -18,39 +15,49 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.fis.springlearn.bean1.Employee;
+
 @SpringBootApplication
 public class SpringLearnApplication {
 	private static final Logger LOGGER = LoggerFactory.getLogger(SpringLearnApplication.class);
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringLearnApplication.class, args);
-		displayDate();
-		displayCountry();
+//		SpringApplication.run(SpringLearnApplication.class, args);
+//		displayDate();
+//		displayCountry();
+		displayEmployee();
 	}
-	
+
 //	public static void displayCountries() {
 //		LOGGER.info("");
 //		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
 //		Country country = context.getBean("countryList", Country.class);
 //		for(int i=0;i<co)
 //	}
-	
+
 	public static void displayCountry() {
 		LOGGER.info("START");
-		
+
 		ApplicationContext context = new ClassPathXmlApplicationContext("country.xml");
 //		Country country = context.getBean("country", Country.class);
 //		Country anotherCountry = context.getBean("anotherCountry", Country.class);
 //		LOGGER.debug(country.toString());
 //		LOGGER.debug(anotherCountry.toString());
-		
-		ArrayList<Country> countryList=context.getBean("countryList",ArrayList.class);
-		LOGGER.debug("Countries : {}"+countryList);
+
+		ArrayList<Country> countryList = context.getBean("countryList", ArrayList.class);
+		LOGGER.debug("Countries : {}" + countryList);
 		LOGGER.info("END");
 	}
 	
+	static void displayEmployee() {
+		LOGGER.info("START");
+		ApplicationContext context = new ClassPathXmlApplicationContext("employee.xml");
+		Employee employee = context.getBean("employee", Employee.class);
+		LOGGER.debug("Employee : {}", employee);
+		LOGGER.info("END");
+	}
 	
-	static void displayDate()  {
+	static void displayDate() {
 		LOGGER.info("START");
 		ApplicationContext context = new ClassPathXmlApplicationContext("date-format.xml");
 		SimpleDateFormat format = context.getBean("dateFormat", SimpleDateFormat.class);
@@ -74,4 +81,3 @@ public class SpringLearnApplication {
 	}
 
 }
-
