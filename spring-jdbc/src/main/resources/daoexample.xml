@@ -20,13 +20,18 @@
 			<props>
 				<prop key="url">jdbc:mysql://localhost:3306/test</prop>
 				<prop key="user">root</prop>
-				<prop key="Cloud@123$">password</prop>
+				<prop key="password">Cloud@123$</prop>
 			</props>
 		</property>
 	</bean>
 
 	<bean id="productDao"
 		class="com.fis.springjdbc.product.ProductDAOImpl">
+		<property name="dataSource" ref="dataSourceHikari" />
+	</bean>
+	
+	<bean id="employeeDao"
+		class="com.fis.springjdbc.employee.EmployeeDAOImpl">
 		<property name="dataSource" ref="dataSourceHikari" />
 	</bean>
 
